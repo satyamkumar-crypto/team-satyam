@@ -1,14 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dasd</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - Smart Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Collobrate Git file</h1>
-  <p>This is example type thats practics purpose</p>
-  
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">✓</div>
+            <div>
+                <h1>TaskFlow</h1>
+                <span>Smart Task Manager</span>
+            </div>
+        </div>
+
+        <button id="themeBtn" class="theme-btn" title="Toggle Theme">
+            🌙
+        </button>
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+
+        <section class="welcome">
+            <div>
+                <p class="small-text">WELCOME BACK TO MY WEB BROWSER👋</p>
+                <h2>Organize your day,<br>one task at a time.</h2>
+                <p class="welcome-text">
+                    Stay productive and keep track of everything you need to do.
+                </p>
+            </div>
+
+            <div class="date-box">
+                <span id="todayDate"></span>
+            </div>
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">📋</div>
+                <div>
+                    <span>Total Tasks</span>
+                    <strong id="totalTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">⏳</div>
+                <div>
+                    <span>Active</span>
+                    <strong id="activeTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedTasks">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">📈</div>
+                <div>
+                    <span>Progress</span>
+                    <strong id="progressPercent">0%</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADD TASK ================= -->
+
+        <section class="task-form-card">
+
+            <div class="section-title">
+                <div>
+                    <p class="small-text">CREATE TASK</p>
+                    <h3>Add a New Task</h3>
+                </div>
+            </div>
+
+            <form id="taskForm">
+
+                <div class="form-group title-group">
+                    <label for="taskInput">Task Title</label>
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="What do you need to do?"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+
+                        <select id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="dueDate">Due Date</label>
+
+                        <input
+                            type="date"
+                            id="dueDate"
+                        >
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="add-btn">
+                    <span>＋</span>
+                    Add Task
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= TASK AREA ================= -->
+
+        <section class="task-section">
+
+            <div class="task-header">
+
+                <div>
+                    <p class="small-text">YOUR WORK</p>
+                    <h3>My Tasks</h3>
+                </div>
+
+                <div class="task-count">
+                    <span id="visibleCount">0</span> tasks
+                </div>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search your tasks..."
+                >
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="active">
+                    Active
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="completed">
+                    Completed
+                </button>
+
+            </div>
+
+
+            <!-- Task List -->
+
+            <div id="taskList" class="task-list"></div>
+
+
+            <!-- Empty State -->
+
+            <div id="emptyState" class="empty-state">
+
+                <div class="empty-icon">📝</div>
+
+                <h3>No tasks found</h3>
+
+                <p>
+                    Add a new task to get started.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <p>
+            TaskFlow © 2026 · Built with Satyam
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
